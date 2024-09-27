@@ -8,7 +8,7 @@ apt-get install -y build-essential
 apt-get install -y git
 apt-get install -y wget
 mamba env create --quiet --file verkko.yml
-echo "hifiasm installed"
+echo "verkko installed"
 %environment
 export LC_ALL=C
 export PATH=/opt/hifiasm:$PATH
