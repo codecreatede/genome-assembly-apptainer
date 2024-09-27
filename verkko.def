@@ -1,0 +1,23 @@
+Bootstrap: docker
+From: condaforge/miniforge3:latest
+%files 
+verkko.yml
+%post
+apt-get update
+apt-get install -y build-essential
+apt-get install -y git
+apt-get install -y wget
+mamba env create --quiet --file verkko.yml
+echo "hifiasm installed"
+%environment
+export LC_ALL=C
+export PATH=/opt/hifiasm:$PATH
+%labels
+Author Gaurav Sablok
+Contact: gauravcodepro@gmail.com
+This is the apptainer compilation for the verkko
+for use on the high performance computing clusters.
+%help
+For the results of the benchmarks, you can visit this github repository
+https://github.com/codecreatede/genomeassembly-pacbiohifi and it has
+detail benchamrk for the pacbiohifi read analysis for the genome assembly.

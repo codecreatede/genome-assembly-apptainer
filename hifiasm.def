@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: ubuntu:22.04
+%post
+apt-get update
+apt-get install -y build-essential
+apt-get install -y git 
+apt-get install -y python3
+apt-get install -y libterm-readline-gnu-perl
+apt-get -y install python3-pip
+cd /opt/
+git clone https://github.com/chhylp123/hifiasm
+cd hifiasm
+make
+echo "hifiasm installed"
+%environment
+export LC_ALL=C
+export PATH=/opt/hifiasm:$PATH
+%labels
+Author Gaurav Sablok
+Contact: gauravcodepro@gmail.com
+This is the apptainer compilation for the hifiasm 
+for use on the high performance computing clusters.
+%help
+For the results of the benchmarks, you can visit this github repository
+https://github.com/codecreatede/genomeassembly-pacbiohifi and it has
+detail benchamrk for the pacbiohifi read analysis for the genome assembly.
